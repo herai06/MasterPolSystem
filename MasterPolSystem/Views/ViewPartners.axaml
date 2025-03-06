@@ -1,0 +1,52 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MasterPolSystem.ViewPartners"
+			 xmlns:vm="using:MasterPolSystem.ViewModels"
+			 x:DataType="vm:ViewPartnerVM">
+	<UserControl.Styles>
+		<StyleInclude Source="avares://MasterPolSystem/Styles.axaml"></StyleInclude>
+	</UserControl.Styles>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="80"></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<Button Command="{Binding ToPageAdd}" Grid.Row="0" Classes="ButtonAdd">+ Добавить партнёра</Button>
+		<TextBlock Text="Партнёры" Classes="TitlePage" Grid.Row="0" FontSize="25"></TextBlock>
+		<ListBox Classes="ListBox"  ItemsSource="{Binding ListPartner}" Grid.Row="1" HorizontalAlignment="Center">
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel></WrapPanel>
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border BorderBrush="#67BA80" BorderThickness="2" CornerRadius="10">
+						<StackPanel Margin="20">
+							<StackPanel  Width="800" Orientation="Horizontal">
+								<StackPanel Width="450">
+									<StackPanel Orientation="Horizontal">
+										<TextBlock Margin="0 0 10 0" FontSize="18" FontFamily="Segoe UI" Text="{Binding IdPartnerTypeNavigation.Name}"></TextBlock>
+										<TextBlock FontSize="18" FontFamily="Segoe UI" Text="{Binding Name, StringFormat= |  {0}}"></TextBlock>
+									</StackPanel>
+									<StackPanel>
+										<TextBlock FontSize="15" FontFamily="Segoe UI" Text="{Binding DirectorFullName}"></TextBlock>
+										<TextBlock FontSize="15" FontFamily="Segoe UI" Text="{Binding Phone, StringFormat=+7 {0}}"></TextBlock>
+										<TextBlock FontSize="15" FontFamily="Segoe UI" Text="{Binding Rating, StringFormat=Рейтинг: {0}}"></TextBlock>
+									</StackPanel>
+								</StackPanel>
+								<TextBlock Margin="300 0 0 0" FontSize="25" FontFamily="Segoe UI" Text="{Binding Discount}"></TextBlock>
+							</StackPanel>
+							<Button Command="{Binding $parent[UserControl].((vm:ViewPartnerVM)DataContext).ToPageUpdata}" CommandParameter="{Binding IdPartner}" Classes="ButtonChange">Редактировать</Button>
+							<Button Command="{Binding $parent[UserControl].((vm:ViewPartnerVM)DataContext).ToPadeHistoty}" CommandParameter="{Binding IdPartner}" Classes="ButtonChange">История</Button>
+						</StackPanel>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
+	
+</UserControl>

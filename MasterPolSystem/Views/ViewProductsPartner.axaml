@@ -1,0 +1,38 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MasterPolSystem.ViewProductsPartner"
+			 xmlns:vm="using:MasterPolSystem.ViewModels"
+			 x:DataType="vm:ViewProductsPartnerVM">
+	<UserControl.Styles>
+		<StyleInclude Source="avares://MasterPolSystem/Styles.axaml"></StyleInclude>
+	</UserControl.Styles>
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="80"></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<Button Command="{Binding ToPageViewPartner}" Grid.Row="0" Classes="ButtonAdd">Назад</Button>
+		<TextBlock Text="История реализации продукции" Classes="TitlePage" Grid.Row="0" FontSize="25"></TextBlock>
+		<ListBox Classes="ListBox"  ItemsSource="{Binding ListProductPartners}" Grid.Row="1" HorizontalAlignment="Center">
+			<ListBox.ItemsPanel>
+				<ItemsPanelTemplate>
+					<WrapPanel></WrapPanel>
+				</ItemsPanelTemplate>
+			</ListBox.ItemsPanel>
+			<ListBox.ItemTemplate>
+				<DataTemplate>
+					<Border BorderBrush="#67BA80" BorderThickness="2" CornerRadius="10">
+						<StackPanel Margin="20" Width="600">
+							<TextBlock Text="{Binding IdProductNavigation.Name}" FontSize="15" FontFamily="Segoe UI" FontWeight="SemiBold" Margin="0 0 0 10"></TextBlock>
+							<TextBlock Text="{Binding ProductQuantity, StringFormat=Количество: {0}}" FontSize="14" FontFamily="Segoe UI" ></TextBlock>
+							<TextBlock Text="{Binding SaleDate, StringFormat=Дата продажи: {0:dd/MM/yyyy}}" FontSize="14" FontFamily="Segoe UI" ></TextBlock>
+						</StackPanel>
+					</Border>
+				</DataTemplate>
+			</ListBox.ItemTemplate>
+		</ListBox>
+	</Grid>
+</UserControl>

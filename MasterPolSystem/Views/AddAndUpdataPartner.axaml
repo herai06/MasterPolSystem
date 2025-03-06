@@ -1,0 +1,63 @@
+<UserControl xmlns="https://github.com/avaloniaui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+             x:Class="MasterPolSystem.AddAndUpdataPartner"
+			 xmlns:vm="using:MasterPolSystem.ViewModels"
+			 x:DataType="vm:AddAndUpdataPartnerVM">
+	
+	<UserControl.Styles>
+		<StyleInclude Source="avares://MasterPolSystem/Styles.axaml"></StyleInclude>
+	</UserControl.Styles>
+	
+	<Grid>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="50"></RowDefinition>
+			<RowDefinition></RowDefinition>
+		</Grid.RowDefinitions>
+		<Button Command="{Binding ToPageViewPartners}" Margin="40 0 0 0" Classes="ButtonBack" >Назад</Button>
+		<TextBlock Text="{Binding TitlePage}" Classes="TitlePage" Grid.Row="0"></TextBlock>
+		<StackPanel Grid.Row="1" Width="500">
+			<StackPanel Margin="0 0 0 15">
+				<TextBlock>Наименование:</TextBlock>
+				<TextBox Text="{Binding CurrentPartner.Name}" AcceptsReturn="True" TextWrapping="Wrap"></TextBox>
+			</StackPanel>
+			<StackPanel Margin="0 0 0 15">
+				<TextBlock>Тип партнёра:</TextBlock>
+				<ComboBox ItemsSource="{Binding ListPartnerTypes}" SelectedItem="{Binding CurrentPartner.IdPartnerTypeNavigation}" Width="200">
+					<ComboBox.ItemTemplate>
+						<DataTemplate>
+							<TextBlock Text="{Binding Name}"></TextBlock>
+						</DataTemplate>
+					</ComboBox.ItemTemplate>
+				</ComboBox>
+			</StackPanel>
+			<StackPanel Margin="0 0 0 15">
+				<TextBlock FontFamily="Segoe UI">ФИО директрора:</TextBlock>
+				<TextBox Text="{Binding CurrentPartner.DirectorFullName}" FontFamily="Segoe UI"></TextBox>
+			</StackPanel>
+			<StackPanel Margin="0 0 0 15">
+				<TextBlock FontFamily="Segoe UI">Почта:</TextBlock>
+				<TextBox Text="{Binding CurrentPartner.Email}" FontFamily="Segoe UI"></TextBox>
+			</StackPanel>
+			<StackPanel Margin="0 0 0 15">
+				<TextBlock FontFamily="Segoe UI">Телефон:</TextBlock>
+				<TextBox Text="{Binding CurrentPartner.Phone}" FontFamily="Segoe UI"></TextBox>
+			</StackPanel>
+			<StackPanel Margin="0 0 0 15">
+				<TextBlock FontFamily="Segoe UI">ИНН:</TextBlock>
+				<TextBox Text="{Binding CurrentPartner.Inn}" FontFamily="Segoe UI"></TextBox>
+			</StackPanel>
+			<StackPanel Margin="0 0 0 15">
+				<TextBlock FontFamily="Segoe UI">Юридический адрес:</TextBlock>
+				<TextBox Text="{Binding CurrentPartner.LegalAddress}" FontFamily="Segoe UI"></TextBox>
+			</StackPanel>
+			<StackPanel Margin="0 0 0 15">
+				<TextBlock FontFamily="Segoe UI">Рейтинг:</TextBlock>
+				<NumericUpDown Value="{Binding CurrentPartner.Rating}" FontFamily="Segoe UI"  Minimum="1" Maximum="10" Increment="1"></NumericUpDown>
+			</StackPanel>
+			<Button Command="{Binding AddPartner}" CommandParameter="{Binding CurrentPartner.IdPartner}" Classes="ButtonAddNew">Сохранить</Button>
+		</StackPanel>
+	</Grid>
+</UserControl>

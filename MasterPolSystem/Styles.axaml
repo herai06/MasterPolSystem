@@ -1,0 +1,102 @@
+<Styles xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <Design.PreviewWith>
+    <Border Padding="20">
+      <!-- Add Controls for Previewer Here -->
+    </Border>
+  </Design.PreviewWith>
+
+	<Style Selector="ListBox.ListBox">
+		<Setter Property="Background" Value="Transparent"></Setter>
+		<Setter Property="IsTabStop" Value="False"></Setter>
+	</Style>
+	<Style Selector="ListBox.ListBox ListBoxItem:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="Transparent"/>
+	</Style>
+	<Style Selector="ListBox.ListBox ListBoxItem:focus-within /template/ ContentPresenter">
+		<Setter Property="Background" Value="Transparent"/>
+	</Style>
+	<Style Selector="ListBox.ListBox ListBoxItem:selected /template/ ContentPresenter">
+		<Setter Property="Background" Value="#F4E8D3"/>
+	</Style>
+
+	<Style Selector="Button.ButtonChange">
+		<Setter Property="Background" Value="Transparent"></Setter>
+		<Setter Property="CornerRadius" Value="5"></Setter>
+		<Setter Property="FontSize" Value="15"></Setter>
+		<Setter Property="FontFamily" Value="Segoe UI"></Setter>
+		<Setter Property="FontWeight" Value="SemiBold"></Setter>
+		<Setter Property="Foreground" Value="Black"></Setter>
+		<Setter Property="Margin" Value="0 20 0 0"></Setter>
+		<Setter Property="BorderBrush" Value="#67BA80"></Setter>
+		<Setter Property="BorderThickness" Value="2"></Setter>
+	</Style>
+	<Style Selector="Button.ButtonChange:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="#67BA80"></Setter>
+	</Style>
+	<Style Selector="Button.ButtonChange:pressed /template/ ContentPresenter">
+		<Setter Property="Background" Value="#67BA80"></Setter>
+	</Style>
+
+	<Style Selector="TextBlock.TitlePage">
+		<Setter Property="FontFamily" Value="Segoe UI"></Setter>
+		<Setter Property="FontWeight" Value="SemiBold"></Setter>
+		<Setter Property="Foreground" Value="#67BA80"></Setter>
+		<Setter Property="HorizontalAlignment" Value="Center"></Setter>
+		<Setter Property="Margin" Value="0 20 0 20"></Setter>
+		<Setter Property="FontSize" Value="18"></Setter>
+	</Style>
+
+	<Style Selector="Button.ButtonAdd">
+		<Setter Property="Margin" Value="40 0 0 0"></Setter>
+		<Setter Property="Background" Value="#67BA80"></Setter>
+		<Setter Property="CornerRadius" Value="5"></Setter>
+		<Setter Property="FontSize" Value="15"></Setter>
+		<Setter Property="FontFamily" Value="Segoe UI"></Setter>
+		<Setter Property="FontWeight" Value="SemiBold"></Setter>
+		<Setter Property="Foreground" Value="Black"></Setter>
+		<Setter Property="VerticalAlignment" Value="Center"></Setter>
+	</Style>
+	<Style Selector="Button.ButtonAdd:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="#F4E8D3"></Setter>
+	</Style>
+	<Style Selector="Button.ButtonAdd:pressed /template/ ContentPresenter">
+		<Setter Property="Background" Value="#F4E8D3"></Setter>
+	</Style>
+
+	<Style Selector="Button.ButtonBack">
+		<Setter Property="Background" Value="Transparent"></Setter>
+		<Setter Property="CornerRadius" Value="5"></Setter>
+		<Setter Property="FontSize" Value="13"></Setter>
+		<Setter Property="FontFamily" Value="Segoe UI"></Setter>
+		<Setter Property="FontWeight" Value="SemiBold"></Setter>
+		<Setter Property="Foreground" Value="Black"></Setter>
+		<Setter Property="Margin" Value="0 0 430 0"></Setter>
+		<Setter Property="BorderBrush" Value="#67BA80"></Setter>
+		<Setter Property="BorderThickness" Value="2"></Setter>
+	</Style>
+	<Style Selector="Button.ButtonBack:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="#F4E8D3"></Setter>
+	</Style>
+	<Style Selector="Button.ButtonBack:pressed /template/ ContentPresenter">
+		<Setter Property="Background" Value="#F4E8D3"></Setter>
+	</Style>
+
+	<Style Selector="Button.ButtonAddNew">
+		<Setter Property="Background" Value="#67BA80"></Setter>
+		<Setter Property="HorizontalAlignment" Value="Center"></Setter>
+		<Setter Property="CornerRadius" Value="5"></Setter>
+		<Setter Property="FontSize" Value="15"></Setter>
+		<Setter Property="FontFamily" Value="Segoe UI"></Setter>
+		<Setter Property="FontWeight" Value="SemiBold"></Setter>
+		<Setter Property="Foreground" Value="Black"></Setter>
+		<Setter Property="Margin" Value="0 20 0 0"></Setter>
+		<Setter Property="BorderThickness" Value="2"></Setter>
+	</Style>
+	<Style Selector="Button.ButtonAddNew:pointerover /template/ ContentPresenter">
+		<Setter Property="Background" Value="#67BA80"></Setter>
+	</Style>
+	<Style Selector="Button.ButtonAddNew:pressed /template/ ContentPresenter">
+		<Setter Property="Background" Value="#67BA80"></Setter>
+	</Style>
+</Styles>
