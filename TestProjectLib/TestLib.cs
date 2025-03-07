@@ -10,7 +10,7 @@ namespace TestProjectLib
         public void ProductIdNotExists()
         {
             CalculationMethod calculator = new CalculationMethod();
-            int idProduct = 5; // Ключ, которого нет в словаре
+            int idProduct = 5;
             int idMaterial = 1;
             int productCount = 10;
             double param1 = 1;
@@ -24,7 +24,7 @@ namespace TestProjectLib
         {
             CalculationMethod calculator = new CalculationMethod();
             int idProduct = 1;
-            int idMaterial = 6; // Ключ, которого нет в словаре
+            int idMaterial = 6;
             int productCount = 10;
             double param1 = 1;
             double param2 = 1;
@@ -34,7 +34,7 @@ namespace TestProjectLib
         }
 
         [TestMethod]
-        public void Param1LessOrEqualZero()
+        public void Param1_NotZero()
         {
             CalculationMethod calculator = new CalculationMethod();
             int idProduct = 1;
@@ -42,6 +42,19 @@ namespace TestProjectLib
             int productCount = 10;
             double param1 = 0;
             double param2 = 1;
+
+            int result = calculator.CalculateMaterial(idProduct, idMaterial, productCount, param1, param2);
+            Assert.AreEqual(-1, result);
+        }
+        [TestMethod]
+        public void Param2_NotZero()
+        {
+            CalculationMethod calculator = new CalculationMethod();
+            int idProduct = 1;
+            int idMaterial = 1;
+            int productCount = 10;
+            double param1 = 1;
+            double param2 = 0;
 
             int result = calculator.CalculateMaterial(idProduct, idMaterial, productCount, param1, param2);
             Assert.AreEqual(-1, result);
@@ -74,18 +87,7 @@ namespace TestProjectLib
             Assert.IsNotInstanceOfType(calculator.CalculateMaterial(idProduct, idMaterial, productCount, param1, param2), typeof(double));
         }
 
-        public void Param2LessOrEqualZero()
-        {
-            CalculationMethod calculator = new CalculationMethod();
-            int idProduct = 1;
-            int idMaterial = 1;
-            int productCount = 10;
-            double param1 = 1;
-            double param2 = 0;
-
-            int result = calculator.CalculateMaterial(idProduct, idMaterial, productCount, param1, param2);
-            Assert.AreEqual(-1, result);
-        }
+        
 
         [TestMethod]
         public void CoefficientsAreCorrect()

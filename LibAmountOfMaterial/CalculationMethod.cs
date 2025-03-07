@@ -19,17 +19,26 @@
         };
         public int CalculateMaterial(int idProduct, int idMaterial, int productCount, double param1, double param2)
         {
-            if (!ProductCoefficients.ContainsKey(idProduct) || !MaterialDefectRates.ContainsKey(idMaterial))
+            int answer = 0;
+            try
             {
-                return -1;
+                if (!ProductCoefficients.ContainsKey(idProduct) || !MaterialDefectRates.ContainsKey(idMaterial))
+                {
+                    return -1;
+                }
+                if (param1 <= 0 || param2 <= 0)
+                {
+                    return -1;
+                }
+                double materialPerUnit = param1 * param2 * ProductCoefficients[idProduct];
+                double totalMaterial = materialPerUnit * productCount / (1 + MaterialDefectRates[idMaterial]);
+                answer = (int)Math.Round(totalMaterial);
             }
-            if (param1 <= 0 || param2 <= 0)
+            catch (Exception ex)
             {
-                return -1;
+                Console.WriteLine(ex.ToString());
             }
-            double materialPerUnit = param1 * param2 * ProductCoefficients[idProduct];
-            double totalMaterial = materialPerUnit * productCount / (1 + MaterialDefectRates[idMaterial]);
-            return (int)Math.Round(totalMaterial);
+            return answer;
         }
     }
 }
